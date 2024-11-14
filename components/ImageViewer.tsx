@@ -1,23 +1,18 @@
-import React from 'react';
-import { StyleSheet, View, Text, ViewStyle } from "react-native";
-
+import { StyleSheet } from "react-native";
+import { Image, type ImageSource } from "expo-image";
 
 type Props = {
-  imgSource: ImageSource
+  imgSource: ImageSource;
 };
 
-export const ImageViewer = (props: Props) => {
-  return (
-    <View style={[styles.container, props.style]}>
-      <Text>ImageViewer</Text>
-    </View>
-  );
-};
+export default function ImageViewer({ imgSource }: Props) {
+  return <Image source={imgSource} style={styles.image} />;
+}
 
-type Styles = {
-  container: ViewStyle;
-};
-
-const styles = StyleSheet.create<Styles>({
-  container: {},
+const styles = StyleSheet.create({
+  image: {
+    width: 320,
+    height: 440,
+    borderRadius: 18,
+  },
 });
